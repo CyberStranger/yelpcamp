@@ -3,30 +3,50 @@
   <div class="row">
     <h1 class="text-center">Edit Campground</h1>
     <div class="col-6 offset-3">
-      <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+      <form class="validated-form" action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate>
 
         <div class="mb-3">
           <label class="form-label" for="title">Title</label>
-          <input class="form-control" type="text" name="campground[title]" value="<%=campground.title%>" id="title">
+          <input class="form-control" type="text" name="campground[title]" value="<%=campground.title%>" id="title"
+            required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="location">Location</label>
-          <input class="form-control" type="text" name="campground[location]" value="<%=campground.location%>" id="location">
+          <input class="form-control" type="text" name="campground[location]" value="<%=campground.location%>"
+            id="location" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="image">Image URL</label>
-          <input class="form-control" type="text" name="campground[image]" value="<%=campground.image%>" id="image">
+          <input class="form-control" type="text" name="campground[image]" value="<%=campground.image%>" id="image"
+            required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Campground Price</label>
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1">$</span>
-            <input type="number" name="campground[price]" id="price" class="form-control" value="<%=campground.price%>" placeholder="0.00">
+            <input type="number" name="campground[price]" id="price" class="form-control" step="0.01"
+              value="<%=campground.price%>" placeholder="0.00" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
         </div>
         <div class="mb-3">
           <label class="form-label" for="description">Description</label>
-          <textarea class="form-control" name="campground[description]" id="description"><%=campground.description%></textarea>
+          <textarea class="form-control" name="campground[description]" id="description"
+            required><%=campground.description%></textarea>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <div class="mb-3">
           <button class="btn btn-info">Update Campground</button>
